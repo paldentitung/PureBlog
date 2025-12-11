@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding JavaScript Closures",
+    "content": "Closures are a fundamental concept in JavaScript. They allow a function to access variables from an enclosing scope even after that scope has finished executing. This makes closures useful for data privacy and function factories."
+  },
+  {
+    "id": 2,
+    "title": "A Guide to Responsive Web Design",
+    "content": "Responsive web design ensures that your website looks good on all devices. By using flexible grids, media queries, and flexible images, you can create layouts that adapt to different screen sizes."
+  },
+  {
+    "id": 3,
+    "title": "Introduction to React Hooks",
+    "content": "React Hooks let you use state and other React features without writing a class. The most common hooks are useState, useEffect, and useContext, which simplify handling state, side effects, and context in functional components."
+  },
+  {
+    "id": 4,
+    "title": "CSS Grid vs Flexbox: When to Use Which",
+    "content": "CSS Grid and Flexbox are powerful layout systems. Grid is best for two-dimensional layouts (rows and columns), while Flexbox is ideal for one-dimensional layouts (row or column). Understanding both helps in creating complex responsive designs."
+  },
+  {
+    "id": 5,
+    "title": "Tips for Writing Clean Code",
+    "content": "Writing clean code improves readability and maintainability. Key practices include meaningful variable names, small functions, avoiding repetition, proper indentation, and documenting complex logic."
+  }
+]
