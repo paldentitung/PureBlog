@@ -12,21 +12,9 @@
     "publishedDate": "2025-03-21"
   },
   {
-    "id": 4,
-    "title": "CSS Grid vs Flexbox: When to Use Which",
-    "content": "CSS Grid and Flexbox are powerful layout systems. Grid is best for two-dimensional layouts (rows and columns), while Flexbox is ideal for one-dimensional layouts (row or column). Understanding both helps in creating complex responsive designs.",
-    "publishedDate": "2025-04-15"
-  },
-  {
-    "id": 5,
-    "title": "Tips for Writing Clean Code",
-    "content": "Writing clean code improves readability and maintainability. Key practices include meaningful variable names, small functions, avoiding repetition, proper indentation, and documenting complex logic.",
-    "publishedDate": "2025-05-09"
-  },
-  {
-    "id": 6,
-    "title": "Mastering JavaScript Promises",
-    "content": "Promises in JavaScript allow you to handle asynchronous operations more effectively. Understanding how to chain, catch errors, and use async/await simplifies complex async code.",
-    "publishedDate": "2025-06-12"
+    "id": 1765469557770,
+    "title": "hello",
+    "content": "jheadf",
+    "publishedDate": "2025-12-11"
   }
 ]

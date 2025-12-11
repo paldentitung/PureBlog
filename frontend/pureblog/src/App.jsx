@@ -8,6 +8,8 @@ const App = () => {
   const [editingBlog, setEditingBlog] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [deleteID, setDeleteID] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+  const [showMessage, setShowMessage] = useState("");
   const getData = async () => {
     const res = await fetch("http://localhost:5000/blogs");
     const data = await res.json();
@@ -58,14 +60,22 @@ const App = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (editingBlog) {
       updateBlog(editingBlog.id, title, content);
+      setShowMessage("Blog Updated");
+      setShowToast(true);
     } else {
-      createBlog({
-        title,
-        content,
-      });
+      createBlog({ title, content });
+      setShowMessage("Blog Added");
+      setShowToast(true);
     }
+
+    // COMMON timeout for both cases
+    setTimeout(() => {
+      setShowMessage("");
+      setShowToast(false);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -180,6 +190,12 @@ const App = () => {
             </section>
           </section>
         </main>
+        {/* toast message */}
+        {showToast && (
+          <div className=" fixed  md:bottom-4 md:right-4 bg-blue-400 px-4 py-2 rounded-md text-white ">
+            {showMessage}
+          </div>
+        )}
       </div>
       {/* modal */}
       {showModal && (
@@ -196,14 +212,24 @@ const App = () => {
               <button
                 // data-id={blog.id}
                 // onClick={() => deleteBlog(blog.id)}
-                onClick={() => deleteBlog(deleteID)}
+                onClick={() => {
+                  deleteBlog(deleteID);
+                  // setShowForm(false);
+                  setShowModal(false);
+                  setShowToast(true);
+                  setShowMessage("Blog Deleted");
+                  setTimeout(() => {
+                    setShowMessage("");
+                    setShowToast(false);
+                  }, 2000);
+                }}
                 className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
               >
                 Delete
               </button>
             </div>
           </div>
-          <div>&times;</div>
+          <div onClick={() => setShowModal(false)}>&times;</div>
         </div>
       )}
     </>
