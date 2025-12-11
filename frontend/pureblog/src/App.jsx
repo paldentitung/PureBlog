@@ -5,7 +5,7 @@ const App = () => {
     <div className="w-full max-w-7xl mx-auto">
       <header className="flex justify-between items-center p-5 w-full  border-b border-gray-300">
         <h1 className="text-2xl font-semibold">PureBlog</h1>
-        <button className="px-6 py-2 bg-black text-white border-0 rounded-md shadow-md  opacity-80 hover:cursor-pointer hover:opacity-100 ">
+        <button className="px-6 py-2 bg-black text-white border-0 rounded-md shadow-md  opacity-80 hover:cursor-pointer hover:opacity-100 active:opacity-50 ">
           Create Post
         </button>
       </header>
@@ -21,10 +21,10 @@ const App = () => {
         </div>
 
         {/* for blogs */}
-        <section className="w-full p-4 flex gap-5 flex-col-reverse md:flex-row  ">
+        <section className="w-full p-4 flex gap-5 flex-col-reverse lg:flex-row  ">
           <section>
             {/* blog */}
-            <div className=" shadow-md p-4  flex flex-col gap-2 ">
+            <div className=" shadow-md p-6  flex flex-col gap-2 ">
               <h2 className=" font-semibold">Blog title</h2>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
@@ -36,7 +36,7 @@ const App = () => {
               <div className="flex gap-6 items-center  justify-between">
                 <span>Blog date</span>
                 <div className="flex gap-5">
-                  <button className="px-6 py-1 opacity-75 bg-green-500 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
+                  <button className="px-6 py-1 opacity-75 bg-indigo-400 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
                     Edit
                   </button>
                   <button className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
@@ -45,7 +45,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className=" shadow-md p-4  flex flex-col gap-2 ">
+            <div className=" shadow-md p-6  flex flex-col gap-2 ">
               <h2 className=" font-semibold">Blog title</h2>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
@@ -57,7 +57,7 @@ const App = () => {
               <div className="flex gap-6 items-center  justify-between">
                 <span>Blog date</span>
                 <div className="flex gap-5">
-                  <button className="px-6 py-1 opacity-75 bg-green-500 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
+                  <button className="px-6 py-1 opacity-75 bg-indigo-400 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
                     Edit
                   </button>
                   <button className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
@@ -66,7 +66,7 @@ const App = () => {
                 </div>
               </div>
             </div>{" "}
-            <div className=" shadow-md p-4  flex flex-col gap-2 ">
+            <div className=" shadow-md p-6  flex flex-col gap-2 ">
               <h2 className=" font-semibold">Blog title</h2>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
@@ -78,7 +78,7 @@ const App = () => {
               <div className="flex gap-6 items-center  justify-between">
                 <span>Blog date</span>
                 <div className="flex gap-5">
-                  <button className="px-6 py-1 opacity-75 bg-green-500 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
+                  <button className="px-6 py-1 opacity-75 bg-indigo-400 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
                     Edit
                   </button>
                   <button className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
@@ -88,7 +88,7 @@ const App = () => {
               </div>
             </div>
           </section>
-          <section>
+          <section className="">
             <form className="flex flex-col gap-4 p-4 shadow-md ">
               <h3 className="font-semibold text-[17px]">Create Post</h3>
               <div className="flex flex-col gap-2">
