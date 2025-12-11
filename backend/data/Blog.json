@@ -1,20 +1,14 @@
 [
   {
-    "id": 1,
-    "title": "Understanding JavaScript Closures",
-    "content": "Closures are a fundamental concept in JavaScript. They allow a function to access variables from an enclosing scope even after that scope has finished executing. This makes closures useful for data privacy and function factories.",
-    "publishedDate": "2025-01-12"
-  },
-  {
     "id": 2,
     "title": "A Guide to Responsive Web Design",
-    "content": "Responsive web design ensures that your website looks good on all devices. By using flexible grids, media queries, and flexible images, you can create layouts that adapt to different screen sizes.",
+    "content": "Responsive web design ensures that your website looks good on all devices. By using flexible grids, media queries, and flexible images, you can create layouts that adapt to different screen sizes. ",
     "publishedDate": "2025-02-03"
   },
   {
     "id": 3,
     "title": "Introduction to React Hooks",
-    "content": "React Hooks let you use state and other React features without writing a class. The most common hooks are useState, useEffect, and useContext, which simplify handling state, side effects, and context in functional components.",
+    "content": "React Hooks let you use state and other React features without writing a class. The most common hooks are useState, useEffect, and useContext, which simplify handling state, side effects, and context in functional components. ",
     "publishedDate": "2025-03-21"
   },
   {
@@ -28,5 +22,11 @@
     "title": "Tips for Writing Clean Code",
     "content": "Writing clean code improves readability and maintainability. Key practices include meaningful variable names, small functions, avoiding repetition, proper indentation, and documenting complex logic.",
     "publishedDate": "2025-05-09"
+  },
+  {
+    "id": 6,
+    "title": "Mastering JavaScript Promises",
+    "content": "Promises in JavaScript allow you to handle asynchronous operations more effectively. Understanding how to chain, catch errors, and use async/await simplifies complex async code.",
+    "publishedDate": "2025-06-12"
   }
 ]

@@ -37,7 +37,7 @@ export const createBlog = (req, res) => {
   }
 
   const newBlog = {
-    id: blogs.length + 1,
+    id: Date.now(),
     title,
     content,
     publishedDate: new Date().toISOString().slice(0, 10),
@@ -48,6 +48,31 @@ export const createBlog = (req, res) => {
   saveBlog(blogs);
 
   res.status(201).json({ message: "Created the Blog" });
+};
+
+export const updateBlog = (req, res) => {
+  const id = parseInt(req.params.id);
+  const { title, content } = req.body;
+  const blogs = getBlogs();
+
+  const updateBlogIndex = blogs.findIndex((blog) => blog.id === id);
+
+  if (updateBlogIndex === -1) {
+    res.status(404).json({
+      message: "Not found",
+    });
+  }
+
+  blogs[updateBlogIndex] = {
+    ...blogs[updateBlogIndex],
+    title: title,
+    content: content,
+  };
+
+  saveBlog(blogs);
+  res.status(200).json({
+    message: "Update the blog",
+  });
 };
 export const deleteBlog = (req, res) => {
   const id = parseInt(req.params.id);
