@@ -19,8 +19,20 @@ const App = () => {
       },
       body: JSON.stringify(newData),
     });
-    const data = res.json();
+    const data = await res.json();
     getData();
+  };
+
+  const deleteBlog = async (id) => {
+    const res = await fetch(`http://localhost:5000/blogs/${id}`, {
+      method: "DELETE",
+    });
+    await res.json();
+    if (res.ok) {
+      getData(); // refresh UI
+    } else {
+      console.log("Delete failed");
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -116,7 +128,11 @@ const App = () => {
                     >
                       Edit
                     </button>
-                    <button className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50">
+                    <button
+                      data-id={blog.id}
+                      onClick={() => deleteBlog(blog.id)}
+                      className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
+                    >
                       Delete
                     </button>
                   </div>

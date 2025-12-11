@@ -49,3 +49,22 @@ export const createBlog = (req, res) => {
 
   res.status(201).json({ message: "Created the Blog" });
 };
+export const deleteBlog = (req, res) => {
+  const id = parseInt(req.params.id);
+  const blogs = getBlogs();
+
+  const deleteBlogIndex = blogs.findIndex((blog) => blog.id === id);
+
+  if (deleteBlogIndex === -1) {
+    res.status(404).json({
+      message: "Not found",
+    });
+  }
+
+  blogs.splice(deleteBlogIndex, 1);
+  saveBlog(blogs);
+
+  res.status(201).json({
+    message: "Deleted blog",
+  });
+};
