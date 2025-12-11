@@ -3,14 +3,34 @@ import React, { useEffect, useState } from "react";
 const App = () => {
   const [blogData, setBlogData] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const getData = async () => {
+    const res = await fetch("http://localhost:5000/blogs");
+    const data = await res.json();
+    setBlogData(data);
+    console.log(data);
+  };
+  const createBlog = async (newData) => {
+    const res = await fetch("http://localhost:5000/blogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+    const data = res.json();
+    getData();
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createBlog({
+      title,
+      content,
+    });
+  };
 
   useEffect(() => {
-    const getData = async () => {
-      const res = await fetch("http://localhost:5000/blogs");
-      const data = await res.json();
-      setBlogData(data);
-      console.log(data);
-    };
     getData();
   }, []);
   return (
@@ -37,11 +57,14 @@ const App = () => {
 
         <section
           className={`
-    w-full p-4 overflow-hidden transition-all duration-300
-    ${showForm ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 "}
-  `}
+      w-full p-4 overflow-hidden transition-all duration-300
+      ${showForm ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 "}
+    `}
         >
-          <form className="flex flex-col gap-4 p-4 shadow-md ">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4 p-4 shadow-md "
+          >
             <h3 className="font-semibold text-[17px]">Create Post</h3>
             <div className="flex flex-col gap-2">
               <label htmlFor="title">Blog Title</label>
@@ -49,6 +72,7 @@ const App = () => {
                 type="text"
                 name="title"
                 placeholder="Title"
+                onChange={(e) => setTitle(e.target.value)}
                 className="ring-1 ring-gray-400 py-2  px-3  outline-0 transition-all duration-300 hover:ring-blue-500 "
               />
             </div>
@@ -57,6 +81,7 @@ const App = () => {
               <textarea
                 name="content"
                 placeholder="Content"
+                onChange={(e) => setContent(e.target.value)}
                 className="ring-1 ring-gray-400 py-2  px-3 max-h-52 resize-x-none outline-0 transition-all duration-300 hover:ring-blue-500 "
               ></textarea>
             </div>
@@ -83,7 +108,7 @@ const App = () => {
                 <p>{blog.content}</p>
 
                 <div className="flex gap-6 items-center  justify-between">
-                  <span>Blog date</span>
+                  <span>{blog.publishedDate}</span>
                   <div className="flex gap-5">
                     <button
                       onClick={() => setShowForm(!showForm)}

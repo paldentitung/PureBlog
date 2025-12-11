@@ -14,6 +14,9 @@ const getBlogs = () => {
   const data = fs.readFileSync(filePath, "utf8");
   return JSON.parse(data);
 };
+const saveBlog = (blog) => {
+  fs.writeFileSync(filePath, JSON.stringify(blog, null, 2));
+};
 
 // Express controller
 export const getAllBlogs = (req, res) => {
@@ -23,4 +26,26 @@ export const getAllBlogs = (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Failed to read blogs" });
   }
+};
+
+export const createBlog = (req, res) => {
+  const { title, content } = req.body;
+  const blogs = getBlogs();
+
+  if (!title || !content) {
+    res.status(400).json({ message: "Title and Content are required" });
+  }
+
+  const newBlog = {
+    id: blogs.length + 1,
+    title,
+    content,
+    publishedDate: new Date().toISOString().slice(0, 10),
+  };
+
+  blogs.push(newBlog);
+
+  saveBlog(blogs);
+
+  res.status(201).json({ message: "Created the Blog" });
 };
