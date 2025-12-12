@@ -265,7 +265,7 @@ const App = () => {
       </div>
       {/* modal */}
       {showModal && (
-        <div className="fixed  inset-0 h-full w-full flex justify-center items-center  bg-black/50">
+        <div className="fixed  inset-0 h-full w-full flex justify-center items-center z-50 bg-black/50">
           <div className="flex flex-col gap-4 p-6 bg-white w-full max-w-[300px] justify-center items-center border-0  shadow-2xl rounded-md">
             <p>Are you sure?</p>
             <div className="flex gap-5">
