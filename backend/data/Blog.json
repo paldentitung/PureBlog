@@ -1,20 +1,62 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "title": "A Guide to Responsive Web Design",
-    "content": "Responsive web design ensures that your website looks good on all devices. By using flexible grids, media queries, and flexible images, you can create layouts that adapt to different screen sizes. ",
+    "content": "Responsive web design ensures that your website looks good on all devices. By using flexible grids, media queries, and flexible images, you can create layouts that adapt to different screen sizes.",
     "publishedDate": "2025-02-03"
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "Introduction to React Hooks",
-    "content": "React Hooks let you use state and other React features without writing a class. The most common hooks are useState, useEffect, and useContext, which simplify handling state, side effects, and context in functional components. ",
+    "content": "React Hooks let you use state and other React features without writing a class. The most common hooks are useState, useEffect, and useContext, which simplify handling state, side effects, and context in functional components.",
     "publishedDate": "2025-03-21"
   },
   {
-    "id": 1765469557770,
-    "title": "hello",
-    "content": "jheadf",
+    "id": 3,
+    "title": "JavaScript ES6 Features",
+    "content": "ES6 brought many new features to JavaScript, including arrow functions, template literals, destructuring, default parameters, and more, making code more concise and readable.",
+    "publishedDate": "2025-04-15"
+  },
+  {
+    "id": 4,
+    "title": "CSS Grid vs Flexbox",
+    "content": "CSS Grid and Flexbox are two powerful layout systems. Grid is best for 2D layouts, while Flexbox is better for 1D layouts. Knowing when to use each helps create responsive, clean designs.",
+    "publishedDate": "2025-05-05"
+  },
+  {
+    "id": 5,
+    "title": "Building a Node.js API",
+    "content": "Node.js allows you to build fast and scalable server-side applications. Using Express, you can create RESTful APIs to handle CRUD operations efficiently.",
+    "publishedDate": "2025-06-10"
+  },
+  {
+    "id": 6,
+    "title": "Understanding Asynchronous JavaScript",
+    "content": "Asynchronous programming in JavaScript is crucial for handling tasks like API calls, timers, and file reading. Promises, async/await, and callbacks are the main tools.",
+    "publishedDate": "2025-07-22"
+  },
+  {
+    "id": 7,
+    "title": "Debugging in Chrome DevTools",
+    "content": "Chrome DevTools offers powerful debugging tools for JavaScript. You can set breakpoints, inspect elements, monitor network requests, and profile performance.",
+    "publishedDate": "2025-08-12"
+  },
+  {
+    "id": 8,
+    "title": "State Management in React",
+    "content": "Managing state is essential for React apps. Learn about useState, useReducer, and context API to keep your components predictable and maintainable.",
+    "publishedDate": "2025-09-03"
+  },
+  {
+    "id": 9,
+    "title": "Introduction to TypeScript",
+    "content": "TypeScript is a typed superset of JavaScript that adds static typing. It helps catch errors early and improves code readability and maintainability.",
+    "publishedDate": "2025-10-18"
+  },
+  {
+    "id": 10,
+    "title": "Hello World Example",
+    "content": "This is a simple hello world example to demonstrate how to get started with JavaScript and React in your first project.",
     "publishedDate": "2025-12-11"
   }
 ]

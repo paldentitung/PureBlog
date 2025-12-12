@@ -10,6 +10,7 @@ const App = () => {
   const [deleteID, setDeleteID] = useState(null);
   const [showToast, setShowToast] = useState(false);
   const [showMessage, setShowMessage] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const getData = async () => {
     const res = await fetch("http://localhost:5000/blogs");
     const data = await res.json();
@@ -78,6 +79,12 @@ const App = () => {
     }, 2000);
   };
 
+  const filteredData = blogData.filter(
+    (blog) =>
+      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   useEffect(() => {
     getData();
   }, []);
@@ -88,7 +95,7 @@ const App = () => {
           <h1 className="text-2xl font-semibold">PureBlog</h1>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="px-6 py-2 bg-black text-white border-0 rounded-md shadow-md  opacity-80 hover:cursor-pointer hover:opacity-100 active:opacity-50 "
+            className="px-6 py-2 bg-black text)-white border-0 text-white rounded-md shadow-md  opacity-80 hover:cursor-pointer hover:opacity-100 active:opacity-50 "
           >
             {showForm ? "close form" : " Create Post"}
           </button>
@@ -100,6 +107,8 @@ const App = () => {
             <input
               type="search"
               placeholder="Search Blogs ....."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full  py-2  px-4 border-0 outline-0 ring-1  transition-all duration-300 hover:ring-2 hover:ring-blue-400 "
             />
           </div>
@@ -149,44 +158,58 @@ const App = () => {
 
           {/* for blogs */}
           <section className="w-full p-4   ">
-            <section className="flex flex-col gap-4">
-              {blogData.map((blog, index) => (
-                <div
-                  key={blog.id}
-                  className=" shadow-lg  p-6  flex flex-col gap-2  rounded-md"
-                >
-                  <h2 className=" font-semibold">{blog.title}</h2>
-                  <p>{blog.content}</p>
-
-                  <div className="flex gap-6 items-center  justify-between">
-                    <span>{blog.publishedDate}</span>
-                    <div className="flex gap-5">
-                      <button
-                        onClick={() => {
-                          setShowForm(true);
-                          setEditingBlog(blog);
-                          setTitle(blog.title);
-                          setContent(blog.content);
-                        }}
-                        className="px-6 py-1 opacity-75 bg-indigo-400 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <>
+                {filteredData.length > 0 ? (
+                  <>
+                    {filteredData.map((blog, index) => (
+                      <div
+                        key={blog.id}
+                        className=" shadow-lg  p-6  flex flex-col gap-2  rounded-md  transition-all duration-200 hover:shadow-lg"
                       >
-                        Edit
-                      </button>
-                      <button
-                        // onClick={() => deleteBlog(blog.id)}
-                        onClick={() => {
-                          setShowModal(true);
+                        <h2 className=" font-semibold">{blog.title}</h2>
+                        <p>{blog.content}</p>
 
-                          setDeleteID(blog.id);
-                        }}
-                        className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                        <div className="flex gap-6 items-center  justify-between">
+                          <span className="text-gray-500">
+                            {blog.publishedDate}
+                          </span>
+                          <div className="flex gap-5">
+                            <button
+                              onClick={() => {
+                                setShowForm(true);
+                                setEditingBlog(blog);
+                                setTitle(blog.title);
+                                setContent(blog.content);
+                              }}
+                              className="px-6 py-1 opacity-75 bg-indigo-400 text-white  transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              // onClick={() => deleteBlog(blog.id)}
+                              onClick={() => {
+                                setShowModal(true);
+
+                                setDeleteID(blog.id);
+                              }}
+                              className="px-6 py-1 opacity-75 bg-rose-700 text-white transition-all duration-200 hover:cursor-pointer shadow-md border-0  hover:opacity-100 active:opacity-50"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <p className="text-center text-[20px] text-green-800 font-semibold">
+                      Blog Not Found
+                    </p>
+                  </>
+                )}
+              </>
             </section>
           </section>
         </main>
